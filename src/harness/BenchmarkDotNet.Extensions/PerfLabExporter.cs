@@ -27,7 +27,7 @@ namespace BenchmarkDotNet.Extensions
 
             var hasCriticalErrors = summary.HasCriticalValidationErrors;
 
-            DisassemblyDiagnoser? disassemblyDiagnoser = summary.Reports
+            DisassemblyDiagnoser disassemblyDiagnoser = summary.Reports
                 .FirstOrDefault()? // disassembler was either enabled for all or none of them (so we use the first one)
                 .BenchmarkCase.Config.GetDiagnosers().OfType<DisassemblyDiagnoser>().FirstOrDefault();
 
